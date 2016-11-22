@@ -36,9 +36,9 @@ public class UsuarioDAO {
 		
 		pstmt.setString(3, sdf.format(fecha.getTime()));
 		
-		fecha=usuario.getFecha_registro();
+		Calendar fecha1=usuario.getFecha_registro();
 		
-		pstmt.setString(4, sdf.format(fecha.getTime()));
+		pstmt.setString(4, sdf.format(fecha1.getTime()));
 		
 		pstmt.setString(5, usuario.getContrasenha());
 		

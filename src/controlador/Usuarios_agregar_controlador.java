@@ -72,9 +72,11 @@ public class Usuarios_agregar_controlador implements ActionListener {
 	        
 	        String dateInString = ventana.getTf_fecha_nacimiento().getText();
 	        try {
-				date = sdf.parse(dateInString);
-				calendar.setTime(date);
-				usuario.setFecha_nacimiento(calendar);
+	        	Date date1 = new Date();
+	        	Calendar calendar1 = Calendar.getInstance();
+				date1 = sdf.parse(dateInString);
+				calendar1.setTime(date1);
+				usuario.setFecha_nacimiento(calendar1);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
