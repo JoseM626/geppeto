@@ -62,6 +62,12 @@ public class Usuario {
 	public void setFoto(File foto) {
 		this.foto = foto;
 	}
+	@Override
+	public String toString() {
+		return "Usuario [id_usuario=" + id_usuario + ", nombres=" + nombres + ", apellidos=" + apellidos
+				+ ", fecha_nacimiento=" + fecha_nacimiento + ", fecha_registro=" + fecha_registro + ", contrasenha="
+				+ contrasenha + ", foto=" + foto + ", tipo_usuario=" + tipo_usuario + "]";
+	}
 	
 	
 	

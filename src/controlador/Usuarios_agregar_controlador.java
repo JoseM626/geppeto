@@ -13,12 +13,14 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import modelo.Usuario;
+import modelo.UsuarioDAO;
 import vista.Usuarios_agregar;
 
 public class Usuarios_agregar_controlador implements ActionListener {
 	private Usuarios_agregar ventana;
 	private JFileChooser fc;
 	private Usuario usuario;
+	private UsuarioDAO usuario_dao;
 	private File source;
 	
 	public Usuarios_agregar_controlador() {
@@ -30,6 +32,7 @@ public class Usuarios_agregar_controlador implements ActionListener {
 		FileNameExtensionFilter filter=new FileNameExtensionFilter("PNG, JPG & GIF", "png", "jpg", "gif");
 		fc.setFileFilter(filter);
 		usuario=new Usuario();
+		usuario_dao=new UsuarioDAO();
 		
 		ImageIcon icon=new ImageIcon("usuario.png");
 		ventana.getLbl_foto().setIcon(icon);
@@ -76,12 +79,22 @@ public class Usuarios_agregar_controlador implements ActionListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	        System.out.println(usuario.getFecha_nacimiento()); //Tue Aug 31 10:20:56 SGT 1982
+	        //System.out.println(usuario.getFecha_nacimiento()); //Tue Aug 31 10:20:56 SGT 1982
 	        usuario.setContrasenha(String.copyValueOf(ventana.getPf_contrasenha().getPassword()));
 
 	        usuario.setFoto(source);
 	        
-	        System.out.println(source.getAbsolutePath());
+	        
+	        usuario.setTipo_usuario((char)('0' + ventana.getCb_tipo_usuario().getSelectedIndex()));
+	        
+	        //System.out.println(ventana.getCb_tipo_usuario().getSelectedIndex());
+	        
+	        //System.out.println(source.getAbsolutePath());
+	        System.out.println(usuario.toString());
+	        
+	        System.out.println(usuario_dao.agregar(usuario));
+	        
+	        
 	        
 	        
 	        

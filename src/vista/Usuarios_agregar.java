@@ -1,5 +1,6 @@
 package vista;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -24,6 +25,14 @@ public class Usuarios_agregar extends JFrame {
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
+		
+		ImageIcon icon=new ImageIcon("geppeto_tienda.png");
+		
+		
+		lbl_titulo=new JLabel();
+		lbl_titulo.setBounds(90, 10, 500, 100);
+		lbl_titulo.setIcon(icon);
+		add(lbl_titulo);
 		
 		lbl_nombres=new JLabel("Nombre(s):");
 		lbl_nombres.setBounds(250, 120, 100, 30);
