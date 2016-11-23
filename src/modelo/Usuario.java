@@ -13,6 +13,7 @@ public class Usuario {
 	private String contrasenha;
 	private File foto;
 	private char tipo_usuario;
+	private Image imagen;
 		
 	public int getId_usuario() {
 		return id_usuario;
@@ -62,12 +63,21 @@ public class Usuario {
 	public void setFoto(File foto) {
 		this.foto = foto;
 	}
+	
+	public Image getImagen() {
+		return imagen;
+	}
+	public void setImagen(Image imagen) {
+		this.imagen = imagen;
+	}
 	@Override
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", nombres=" + nombres + ", apellidos=" + apellidos
 				+ ", fecha_nacimiento=" + fecha_nacimiento + ", fecha_registro=" + fecha_registro + ", contrasenha="
-				+ contrasenha + ", foto=" + foto + ", tipo_usuario=" + tipo_usuario + "]";
+				+ contrasenha + ", foto=" + foto + ", tipo_usuario=" + tipo_usuario + ", imagen=" + imagen + "]";
 	}
+	
+	
 	
 	
 	
