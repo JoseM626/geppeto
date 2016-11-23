@@ -22,8 +22,8 @@ public class UsuarioDAO {
 		
 		
 		String sentenciaSQL;
-		System.out.println(conexion.conectar());
-		
+		//System.out.println(conexion.conectar());
+		conexion.conectar();
 		
 		boolean rpta=false;
 		
@@ -71,7 +71,9 @@ public class UsuarioDAO {
 	public Usuario logear(String nombre, String contra) {
 		Usuario usuario=new Usuario();
 		
-		System.out.println(conexion.conectar());
+		//System.out.println(conexion.conectar());
+		conexion.conectar();
+		
 		try {
 			String sentenciaSQL="SELECT * FROM usuarios where nombres=? and PWDCOMPARE(?, contrasenha)=1";
 			PreparedStatement pstmt = conexion.getC().prepareStatement(sentenciaSQL);
@@ -106,7 +108,8 @@ public class UsuarioDAO {
             rs.close();
             pstmt.close();
             //return img;
-            System.out.println(conexion.desconectar());
+            //System.out.println(conexion.desconectar());
+            conexion.desconectar();
  } catch (Exception e) {
             System.err.println("Error al acceder al registro: " + e.getMessage());
  }

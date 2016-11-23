@@ -38,7 +38,7 @@ public class Login_controlador implements ActionListener {
 			if(usuario.getId_usuario()!=0) {
 				principal_controlador=new Principal_controlador(usuario);
 				ventana.setVisible(false);
-				System.out.println(usuario);
+				//System.out.println(usuario);
 			}else {
 				ventana.getPf_contrasenha().setText("");
 				ventana.getTf_nombres().setText("");
