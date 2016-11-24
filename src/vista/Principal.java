@@ -26,6 +26,45 @@ public class Principal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
 		
+		System.out.println(usuario.toString());
+		switch(usuario.getTipo_usuario()) {
+		case '0':
+			inicializar_administrador(usuario);
+			break;
+		case '1':
+			break;
+		case '2':
+			inicializar_contador(usuario);
+			break;
+		}
+		
+		
+		ImageIcon icon1=new ImageIcon("geppeto_tienda.png");
+		
+		
+		lbl_titulo=new JLabel();
+		lbl_titulo.setBounds(100, 200, 500, 120);
+		lbl_titulo.setIcon(icon1);
+		add(lbl_titulo);
+		
+		lbl_foto=new JLabel();
+		lbl_foto.setBounds(500, 10, 50, 50);
+		ImageIcon imagen=new ImageIcon(usuario.getImagen());
+		Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(lbl_foto.getWidth(), lbl_foto.getHeight(), Image.SCALE_DEFAULT));
+		lbl_foto.setIcon(icono);
+		
+		add(lbl_foto);
+		
+		lbl_bienvenido=new JLabel("Bienvenido");
+		lbl_bienvenido.setBounds(570, 10, 300, 30);
+		add(lbl_bienvenido);
+		
+		lbl_nombres=new JLabel(usuario.getNombres()+" "+usuario.getApellidos());
+		lbl_nombres.setBounds(570, 30, 300, 30);
+		add(lbl_nombres);
+				
+	}
+	private void inicializar_administrador(Usuario usuario) {
 		
 		jmb=new JMenuBar();
 		
@@ -63,33 +102,44 @@ public class Principal extends JFrame {
 		
 		setJMenuBar(jmb);
 		
-		ImageIcon icon1=new ImageIcon("geppeto_tienda.png");
+	}
+	private void inicializar_contador(Usuario usuario) {
 		
+		jmb=new JMenuBar();
 		
-		lbl_titulo=new JLabel();
-		lbl_titulo.setBounds(100, 200, 500, 120);
-		lbl_titulo.setIcon(icon1);
-		add(lbl_titulo);
+		jm_clientes=new JMenu("Clientes");
+		jmi_clientes_reporte=new JMenuItem("Reporte");
+		jm_clientes.add(jmi_clientes_reporte);
 		
-		lbl_foto=new JLabel();
-		lbl_foto.setBounds(500, 10, 50, 50);
-		ImageIcon imagen=new ImageIcon(usuario.getImagen());
-		Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(lbl_foto.getWidth(), lbl_foto.getHeight(), Image.SCALE_DEFAULT));
-		lbl_foto.setIcon(icono);
+		jm_articulos=new JMenu("Articulos");
+		//jmi_articulos_agregar=new JMenuItem("Agregar");
+		jmi_articulos_reporte=new JMenuItem("Reporte");
+		//jm_articulos.add(jmi_articulos_agregar);
+		jm_articulos.add(jmi_articulos_reporte);
 		
-		add(lbl_foto);
+		jm_categorias=new JMenu("Categorias");
+		//jmi_categorias_agregar=new JMenuItem("Agregar");
+		jmi_categorias_reporte=new JMenuItem("Reporte");
+		//jm_categorias.add(jmi_categorias_agregar);
+		jm_categorias.add(jmi_categorias_reporte);
 		
-		lbl_bienvenido=new JLabel("Bienvenido");
-		lbl_bienvenido.setBounds(570, 10, 300, 30);
-		add(lbl_bienvenido);
+		jm_ventas=new JMenu("Ventas");
+		jmi_ventas_diario=new JMenuItem("Reporte diario");
+		jmi_ventas_mensual=new JMenuItem("Reporte mensual");
+		jm_ventas.add(jmi_ventas_diario);
+		jm_ventas.add(jmi_ventas_mensual);
 		
-		lbl_nombres=new JLabel(usuario.getNombres()+" "+usuario.getApellidos());
-		lbl_nombres.setBounds(570, 30, 300, 30);
-		add(lbl_nombres);
+		jm_salir=new JMenu("Salir");
+		jmi_salir_salir=new JMenuItem("Salir");
+		jm_salir.add(jmi_salir_salir);
 		
+		jmb.add(jm_clientes);
+		jmb.add(jm_articulos);
+		jmb.add(jm_categorias);
+		jmb.add(jm_ventas);
+		jmb.add(jm_salir);		
 		
-		
-		
+		setJMenuBar(jmb);
 		
 	}
 
