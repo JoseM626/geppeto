@@ -18,16 +18,12 @@ public class Login_controlador implements ActionListener {
 		ventana.getBtn_aceptar().addActionListener(this);
 		usuario_dao=new UsuarioDAO();
 		usuario=new Usuario();
-		
-		
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Login_controlador login_controlador=new Login_controlador();
 		login_controlador.ventana.setVisible(true);
-		
-
 	}
 
 	@Override

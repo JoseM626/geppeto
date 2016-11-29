@@ -51,7 +51,7 @@ public class UsuarioDAO {
 		FileInputStream streamEntrada = new FileInputStream(usuario.getFoto());
 		pstmt.setBinaryStream(6, streamEntrada, (int)usuario.getFoto().length());
 		
-		pstmt.setString(7, String.valueOf(usuario.getTipo_usuario()));
+		pstmt.setInt(7, (usuario.getTipo_usuario()));
 				 
 		pstmt.executeUpdate(); 
 		pstmt.close(); 
@@ -99,7 +99,7 @@ public class UsuarioDAO {
 	            Image image = ImageIO.read(in);
 	            
 	            usuario.setImagen(image);
-	            usuario.setTipo_usuario((char) rs.getInt("tipo_usuario"));           
+	            usuario.setTipo_usuario((byte) rs.getInt("tipo_usuario"));           
 	            
 	            in.close();
 	            

@@ -12,7 +12,7 @@ public class Usuario {
 	private Calendar fecha_registro;
 	private String contrasenha;
 	private File foto;
-	private char tipo_usuario;
+	private byte tipo_usuario;
 	private Image imagen;
 		
 	public int getId_usuario() {
@@ -51,19 +51,18 @@ public class Usuario {
 	public void setContrasenha(String contrasenha) {
 		this.contrasenha = contrasenha;
 	}
-	public char getTipo_usuario() {
+	public byte getTipo_usuario() {
 		return tipo_usuario;
 	}
-	public void setTipo_usuario(char tipo_usuario) {
+	public void setTipo_usuario(byte tipo_usuario) {
 		this.tipo_usuario = tipo_usuario;
-	}
-	public File getFoto() {
-		return foto;
 	}
 	public void setFoto(File foto) {
 		this.foto = foto;
+	}	
+	public File getFoto() {
+		return foto;
 	}
-	
 	public Image getImagen() {
 		return imagen;
 	}

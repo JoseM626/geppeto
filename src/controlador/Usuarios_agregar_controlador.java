@@ -53,8 +53,8 @@ public class Usuarios_agregar_controlador implements ActionListener {
 				String path=fc.getSelectedFile().getPath();
 				//System.out.println(path);
 				ImageIcon icon=new ImageIcon(path);
-				System.out.println("Width:"+icon.getIconWidth());
-				System.out.println("Height:"+icon.getIconHeight());
+				//System.out.println("Width:"+icon.getIconWidth());
+				//System.out.println("Height:"+icon.getIconHeight());
 				ventana.getLbl_foto().setIcon(icon);
 				source=new File(path);
 			}
@@ -87,7 +87,7 @@ public class Usuarios_agregar_controlador implements ActionListener {
 	        usuario.setFoto(source);
 	        
 	        
-	        usuario.setTipo_usuario((char)('0' + ventana.getCb_tipo_usuario().getSelectedIndex()));
+	        usuario.setTipo_usuario((byte) ventana.getCb_tipo_usuario().getSelectedIndex());
 	        
 	        //System.out.println(ventana.getCb_tipo_usuario().getSelectedIndex());
 	        
