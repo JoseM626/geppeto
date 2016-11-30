@@ -1,9 +1,13 @@
 package modelo;
 
 import java.io.FileInputStream;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Vector;
 
 public class CategoriaDAO {
 	private Conexion conexion;
@@ -49,6 +53,55 @@ public class CategoriaDAO {
 		
 		return rpta;
 		
+	}
+	public Vector traer() {
+		Vector categorias=new Vector();
+		
+		conexion.conectar();
+		String sql;
+		
+		try {
+			sql="SELECT nombre FROM categorias ORDER BY nombre";
+			PreparedStatement pstm=conexion.getC().prepareStatement(sql);
+			ResultSet rs=pstm.executeQuery();
+			while(rs.next()) {
+				categorias.add(rs.getString("nombre"));
+			}
+			pstm.close();
+		}catch(SQLException ex1) {
+			System.out.println(ex1.getMessage());
+		}
+		
+		conexion.desconectar();
+		
+		
+		
+		return categorias;
+	}
+	public int traer_id(String nombre) {
+		int respuesta=0;
+		
+		conexion.conectar();
+		String sql;
+		
+		try {
+			sql="SELECT id_categoria FROM categorias where nombre=?";
+			PreparedStatement pstm=conexion.getC().prepareStatement(sql);
+			pstm.setString(1, nombre);
+			ResultSet rs=pstm.executeQuery();
+			if(rs.next()) {
+				respuesta=rs.getInt("id_categoria");
+			}
+			pstm.close();
+		}catch(SQLException ex1) {
+			System.out.println(ex1.getMessage());
+		}
+		
+		conexion.desconectar();
+		
+		
+		
+		return respuesta;
 	}
 
 }

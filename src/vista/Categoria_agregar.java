@@ -74,7 +74,7 @@ public class Categoria_agregar extends JFrame {
 		lbl_imagen.setBounds(547, 11, 46, 14);
 		panel.add(lbl_imagen);
 		
-		ImageIcon icon=new ImageIcon("usuario.png");
+		ImageIcon icon=new ImageIcon("categorias.png");
 		lbl_cat_foto = new JLabel();
 		lbl_cat_foto.setBounds(547, 36, 200, 200);
 		lbl_cat_foto.setIcon(icon);

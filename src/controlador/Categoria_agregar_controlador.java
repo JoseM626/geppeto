@@ -29,7 +29,7 @@ public class Categoria_agregar_controlador implements ActionListener {
 		ventana.getBtn_buscar().addActionListener(this);
 		ventana.getBtn_guardar().addActionListener(this);
 		ventana.getBtn_cancelar().addActionListener(this);
-		source=new File("usuario.png");
+		source=new File("categorias.png");
 		
 		ventana.setVisible(true);
 		
@@ -83,7 +83,7 @@ public class Categoria_agregar_controlador implements ActionListener {
 			ventana.getTextField().setText("");
 			ventana.getTextArea().setText("");
 			source=new File("usuario.png");
-			ImageIcon icon=new ImageIcon("usuario.png");
+			ImageIcon icon=new ImageIcon("categorias.png");
 			ventana.getLbl_cat_foto().setIcon(icon);
 		}
 		
